@@ -1,0 +1,14 @@
+version: '3'
+services:
+  salt-minion1:
+    build: ./salt-minion
+    container_name: salt-minion1
+    hostname: salt-minion1
+  salt-minion2:
+    build: ./salt-minion
+    container_name: salt-minion2
+    hostname: salt-minion2
+  salt-master:
+    build: ./salt-master
+    container_name: salt-master
+    hostname: salt-master
