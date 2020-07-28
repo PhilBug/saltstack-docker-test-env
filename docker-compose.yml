@@ -12,3 +12,6 @@ services:
     build: ./salt-master
     container_name: salt-master
     hostname: salt-master
+    volumes:
+      - ./salt-master/srv:/srv/
+      - ./salt-master/master.conf:/etc/salt/master

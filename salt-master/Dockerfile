@@ -1,6 +1,6 @@
-FROM ubuntu:20.04
+FROM ubuntu:18.04
 
-ARG SALT_KEY_URL="https://repo.saltstack.com/py3/ubuntu/20.04/amd64/latest/SALTSTACK-GPG-KEY.pub"
+ARG SALT_KEY_URL="https://repo.saltstack.com/py3/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub"
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
@@ -15,7 +15,7 @@ RUN apt-get update && \
     htop
 
 RUN wget -O - ${SALT_KEY_URL} | apt-key add - && \
-    echo "deb http://repo.saltstack.com/py3/ubuntu/20.04/amd64/latest focal main" >> \
+    echo "deb http://repo.saltstack.com/py3/ubuntu/18.04/amd64/latest bionic main" >> \
     /etc/apt/sources.list.d/saltstack.list
 
 RUN apt-get update && \
