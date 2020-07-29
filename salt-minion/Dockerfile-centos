@@ -1,0 +1,18 @@
+FROM centos:centos7
+
+RUN yum install -q -y \
+    epel-release; \
+    yum install -q -y \
+        initscripts \
+        salt-minion \
+        gnupg \
+        ca-certificates \
+        curl \
+        wget \
+        vim \
+        fish \
+        htop
+
+COPY setup.sh /opt/setup.sh
+
+ENTRYPOINT ["sh","/opt/setup.sh"]

@@ -4,11 +4,25 @@ services:
     build: ./salt-minion
     container_name: salt-minion1
     hostname: salt-minion1
+    depends_on:
+      - salt-master
   salt-minion2:
     build: ./salt-minion
     container_name: salt-minion2
     hostname: salt-minion2
+    depends_on:
+      - salt-master
+  salt-minion3:
+    build: ./salt-minion
+    container_name: salt-minion3
+    hostname: salt-minion3
+    depends_on:
+      - salt-master
   salt-master:
     build: ./salt-master
     container_name: salt-master
     hostname: salt-master
+    volumes:
+      - ./salt-master/srv/salt:/srv/salt
+      - ./salt-master/srv/pillar:/srv/pillar
+      - ./salt-master/srv/web:/srv/web
